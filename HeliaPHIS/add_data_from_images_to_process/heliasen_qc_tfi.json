@@ -1,0 +1,815 @@
+{
+  "title": "IPSO Phen pipeline V2",
+  "name": "heliasen_qc",
+  "description": "Pipeline imported from old format, pleas check data",
+  "date": "2021_Mar_17_13-55-46",
+  "version": "0.2.0.0",
+  "settings": {
+    "show_tool_result": 1,
+    "show_group_result": 1,
+    "debug_mode": 0,
+    "allow_step_mosaics": 1,
+    "show_source_image": 0,
+    "tool_group_name_watermark": 0,
+    "stop_on": 35,
+    "mosaic_enabled": true,
+    "mosaic_images": [
+      [
+        "source",
+        "ROIs from raw pre processed image",
+        "Apply ROIS",
+        "Clean mask",
+        "Assert mask position",
+        "mask"
+      ]
+    ]
+  },
+  "Pipeline": {
+    "node_type": "group",
+    "merge_mode": "merge_mode_chain",
+    "name": "Pipeline",
+    "uuid": "962451bd-313b-4f8c-a964-08ee60a522ea",
+    "source": "source",
+    "no_delete": false,
+    "nodes": [
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_none",
+        "name": "ROIs from raw pre processed image",
+        "uuid": "roi_pre_processed",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "ROI manager (deprecated)",
+              "package": "IPSO Phen",
+              "class__name__": "IptRoiManager",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_roi_manager",
+              "params": {
+                "roi_name": "carter",
+                "roi_type": "delete",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": 0,
+                "width": -42,
+                "top": 0,
+                "height": -245,
+                "draw_roi": 0
+              },
+              "grid_search_params": {
+                "roi_name": "unnamed_roi",
+                "roi_type": "keep",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": "0",
+                "width": "0",
+                "top": "0",
+                "height": "0",
+                "draw_roi": "0"
+              }
+            },
+            "enabled": true,
+            "uuid": "21009750-69c7-4610-bfe8-4b3e5cd1d59c"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "ROI manager (deprecated)",
+              "package": "IPSO Phen",
+              "class__name__": "IptRoiManager",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_roi_manager",
+              "params": {
+                "roi_name": "safe_zone",
+                "roi_type": "safe",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": 40,
+                "width": 135,
+                "top": 518,
+                "height": 88,
+                "draw_roi": 0
+              },
+              "grid_search_params": {
+                "roi_name": "unnamed_roi",
+                "roi_type": "keep",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": "0",
+                "width": "0",
+                "top": "0",
+                "height": "0",
+                "draw_roi": "0"
+              }
+            },
+            "enabled": true,
+            "uuid": "db5221bf-4cfb-4677-bc16-cf0e5a94a2f7"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "ROI manager (deprecated)",
+              "package": "IPSO Phen",
+              "class__name__": "IptRoiManager",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_roi_manager",
+              "params": {
+                "roi_name": "pot",
+                "roi_type": "delete",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": 0,
+                "width": 300,
+                "top": 0,
+                "height": -20,
+                "draw_roi": 0
+              },
+              "grid_search_params": {
+                "roi_name": "unnamed_roi",
+                "roi_type": "keep",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": "0",
+                "width": "0",
+                "top": "0",
+                "height": "0",
+                "draw_roi": "0"
+              }
+            },
+            "enabled": true,
+            "uuid": "7e0de0d7-3dfd-4027-9a80-6ddb8a69074a"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "ROI manager (deprecated)",
+              "package": "IPSO Phen",
+              "class__name__": "IptRoiManager",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_roi_manager",
+              "params": {
+                "roi_name": "hose",
+                "roi_type": "delete",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": 0,
+                "width": -136,
+                "top": 0,
+                "height": -33,
+                "draw_roi": 0
+              },
+              "grid_search_params": {
+                "roi_name": "unnamed_roi",
+                "roi_type": "keep",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": "0",
+                "width": "0",
+                "top": "0",
+                "height": "0",
+                "draw_roi": "0"
+              }
+            },
+            "enabled": true,
+            "uuid": "f9356d1c-6911-4f80-bbd4-a54c5cc87ea0"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "ROI manager (deprecated)",
+              "package": "IPSO Phen",
+              "class__name__": "IptRoiManager",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_roi_manager",
+              "params": {
+                "roi_name": "enforcer",
+                "roi_type": "enforce",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": 11,
+                "width": 92,
+                "top": 550,
+                "height": 61,
+                "draw_roi": 0
+              },
+              "grid_search_params": {
+                "roi_name": "unnamed_roi",
+                "roi_type": "keep",
+                "roi_shape": "rectangle",
+                "tool_target": "none",
+                "left": "0",
+                "width": "0",
+                "top": "0",
+                "height": "0",
+                "draw_roi": "0"
+              }
+            },
+            "enabled": true,
+            "uuid": "cb040b4f-9d92-4d1b-97d2-b8429e8f2d93"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_and",
+        "name": "Build mask",
+        "uuid": "build_mask",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Dummy threshold",
+              "package": "TPMP",
+              "class__name__": "IptDummyThreshold",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_dummy_threshold",
+              "params": {
+                "enabled": 1
+              },
+              "grid_search_params": {
+                "enabled": "1"
+              }
+            },
+            "enabled": true,
+            "uuid": "9ecb7e44-3c30-4ebc-995a-a4a1c21a95c0"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_chain",
+        "name": "Apply ROIS",
+        "uuid": "apply_roi",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Apply ROI",
+              "package": "TPMP",
+              "class__name__": "IptApplyRoi",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_apply_roi",
+              "params": {
+                "enabled": 1,
+                "roi_names": "carter",
+                "roi_selection_mode": "all_named",
+                "roi_type": "delete",
+                "erase_outside": 1,
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "roi_names": "",
+                "roi_selection_mode": "all_linked",
+                "roi_type": "keep",
+                "erase_outside": "1",
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              }
+            },
+            "enabled": 1,
+            "uuid": "d42e9889-5536-4eee-8128-6c2bfdb49481"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Apply ROI",
+              "package": "TPMP",
+              "class__name__": "IptApplyRoi",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_apply_roi",
+              "params": {
+                "enabled": 1,
+                "roi_names": "pot",
+                "roi_selection_mode": "all_named",
+                "roi_type": "delete",
+                "erase_outside": 1,
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "roi_names": "",
+                "roi_selection_mode": "all_linked",
+                "roi_type": "keep",
+                "erase_outside": "1",
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              }
+            },
+            "enabled": 1,
+            "uuid": "45261cae-174f-46d1-b6aa-122e2b829f0b"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Apply ROI",
+              "package": "TPMP",
+              "class__name__": "IptApplyRoi",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_apply_roi",
+              "params": {
+                "enabled": 1,
+                "roi_names": "hose",
+                "roi_selection_mode": "all_named",
+                "roi_type": "delete",
+                "erase_outside": 1,
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "roi_names": "",
+                "roi_selection_mode": "all_linked",
+                "roi_type": "keep",
+                "erase_outside": "1",
+                "io_mode": "mask",
+                "input_source": "mask",
+                "output_mode": "mask"
+              }
+            },
+            "enabled": 1,
+            "uuid": "10e40e53-48fc-4ed5-a17f-939582c5a952"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_chain",
+        "name": "Clean mask",
+        "uuid": "clean_mask",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Keep linked Contours",
+              "package": "IPSO Phen",
+              "class__name__": "IptKeepLinkedContours",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_keep_linked_contours",
+              "params": {
+                "tolerance_distance": 2,
+                "tolerance_area": 50,
+                "root_position": "BOTTOM_LEFT",
+                "dilation_iter": -1,
+                "area_override_size": 0,
+                "delete_all_bellow": 0,
+                "safe_roi_name": "",
+                "keep_safe_close_enough": 0,
+                "keep_safe_big_enough": 0,
+                "channel": "l"
+              },
+              "grid_search_params": {
+                "tolerance_distance": "100",
+                "tolerance_area": "5000",
+                "root_position": "BOTTOM_CENTER",
+                "dilation_iter": "0",
+                "area_override_size": "0",
+                "delete_all_bellow": "0",
+                "safe_roi_name": "",
+                "keep_safe_close_enough": "0",
+                "keep_safe_big_enough": "0",
+                "channel": "l"
+              }
+            },
+            "enabled": true,
+            "uuid": "67b23181-f11d-4906-bd6e-398881584fc8"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Clean horizontal noise (Hough method)",
+              "package": "Heliasen",
+              "class__name__": "IptCleanHorizontalNoiseHough",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_clean_horizontal_noise_hough",
+              "params": {
+                "enabled": 1,
+                "votes_threshold": 60
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "votes_threshold": "100"
+              }
+            },
+            "enabled": false,
+            "uuid": "2e45e1e3-1a1e-42ed-9e6c-10c8cef958f2"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Clean horizontal noise",
+              "package": "Heliasen",
+              "class__name__": "IptCleanHorizontalNoise",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_clean_horizontal_noise",
+              "params": {
+                "enabled": 1,
+                "min_line_size": 11,
+                "max_iter": 100,
+                "fully_isolated": 1
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "min_line_size": "11",
+                "max_iter": "100",
+                "fully_isolated": "1"
+              }
+            },
+            "enabled": true,
+            "uuid": "9b5d0990-2835-483b-b359-d0867f75fe81"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Remove plant guide",
+              "package": "Heliasen",
+              "class__name__": "IptRemovePlantGuide",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_remove_plant_guide",
+              "params": {
+                "enabled": 1,
+                "delete_too_narrow": 8,
+                "keep_and_stop_too_wide": 60,
+                "investigate_lower_bound": 16,
+                "investigate_upper_bound": 16
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "delete_too_narrow": "8",
+                "keep_and_stop_too_wide": "60",
+                "investigate_lower_bound": "16",
+                "investigate_upper_bound": "16"
+              }
+            },
+            "enabled": true,
+            "uuid": "c02261d4-487e-48b1-a54c-74cb06219765"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Keep linked Contours",
+              "package": "IPSO Phen",
+              "class__name__": "IptKeepLinkedContours",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_keep_linked_contours",
+              "params": {
+                "tolerance_distance": 2,
+                "tolerance_area": 50,
+                "root_position": "BOTTOM_LEFT",
+                "dilation_iter": -1,
+                "area_override_size": 0,
+                "delete_all_bellow": 0,
+                "safe_roi_name": "",
+                "keep_safe_close_enough": 0,
+                "keep_safe_big_enough": 0,
+                "channel": "l"
+              },
+              "grid_search_params": {
+                "tolerance_distance": "100",
+                "tolerance_area": "5000",
+                "root_position": "BOTTOM_CENTER",
+                "dilation_iter": "0",
+                "area_override_size": "0",
+                "delete_all_bellow": "0",
+                "safe_roi_name": "",
+                "keep_safe_close_enough": "0",
+                "keep_safe_big_enough": "0",
+                "channel": "l"
+              }
+            },
+            "enabled": true,
+            "uuid": "1dfd30ec-9073-4db8-b17d-2c717e2758e7"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_none",
+        "name": "Assert mask position",
+        "uuid": "assert_mask_position",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Assert mask position",
+              "package": "TPMP",
+              "class__name__": "IptAssertMaskPosition",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_assert_mask_position",
+              "params": {
+                "enabled": 1,
+                "roi_names": "enforcer",
+                "roi_selection_mode": "all_named"
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "roi_names": "",
+                "roi_selection_mode": "all_linked"
+              }
+            },
+            "enabled": 1,
+            "uuid": "ee7bca30-badc-40be-b90f-7c64eedff13c"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_chain",
+        "name": "Extract features",
+        "uuid": "extract_features",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Heliasen Quality Control",
+              "package": "Heliasen",
+              "class__name__": "IptHeliasenQualityControl",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_heliasen_quality_control",
+              "params": {
+                "enabled": 1,
+                "binary_error": 0
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "binary_error": "0"
+              }
+            },
+            "enabled": 2,
+            "uuid": "51a47305-17ad-4106-881a-e2017c75f9f6"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Observation data",
+              "package": "IPSO Phen",
+              "class__name__": "IptAnalyseObservation",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_analyze_observation",
+              "params": {
+                "experiment": 1,
+                "plant": 1,
+                "date_time": 1,
+                "camera": 1,
+                "view_option": 1,
+                "luid": 1,
+                "source_path": 1,
+                "split_plant_name": 0,
+                "separator": "_",
+                "new_column_names": "",
+                "add_columns": ""
+              },
+              "grid_search_params": {
+                "experiment": "1",
+                "plant": "1",
+                "date_time": "1",
+                "camera": "1",
+                "view_option": "1",
+                "luid": "0",
+                "source_path": "0",
+                "sep_1": "",
+                "split_plant_name": "0",
+                "separator": "_",
+                "new_column_names": "",
+                "add_columns": ""
+              }
+            },
+            "enabled": 2,
+            "uuid": "a4ee66ad-1e40-42c0-a144-6147b6a0f80b"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Analyze bound",
+              "package": "IPSO Phen",
+              "class__name__": "IptAnalyzeBound",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_analyze_bound",
+              "params": {
+                "above_bound_height": 1,
+                "above_bound_area": 1,
+                "above_bound_percent_area": 1,
+                "below_bound_height": 1,
+                "below_bound_area": 1,
+                "below_bound_percent_area": 1,
+                "override_shape_height": 1,
+                "line_position": -1,
+                "channel": "l"
+              },
+              "grid_search_params": {
+                "above_bound_height": "1",
+                "above_bound_area": "1",
+                "above_bound_percent_area": "1",
+                "below_bound_height": "1",
+                "below_bound_area": "1",
+                "below_bound_percent_area": "1",
+                "override_shape_height": "1",
+                "line_position": "-1",
+                "sep_1": "",
+                "channel": "l"
+              }
+            },
+            "enabled": 2,
+            "uuid": "f9be0a4a-337c-466b-b966-610bee835f3e"
+          },
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Analyze object",
+              "package": "IPSO Phen",
+              "class__name__": "IptAnalyzeObject",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_analyze_object",
+              "params": {
+                "area": 1,
+                "perimeter": 1,
+                "centroid_x": 1,
+                "centroid_y": 1,
+                "hull_area": 1,
+                "shape_solidity": 1,
+                "shape_extend": 1,
+                "straight_bounding_rectangle_left": 1,
+                "straight_bounding_rectangle_width": 1,
+                "straight_bounding_rectangle_top": 1,
+                "straight_bounding_rectangle_height": 1,
+                "rotated_bounding_rectangle_cx": 1,
+                "rotated_bounding_rectangle_cy": 1,
+                "rotated_bounding_rectangle_width": 1,
+                "rotated_bounding_rectangle_height": 1,
+                "rotated_bounding_rectangle_rotation": 1,
+                "minimum_enclosing_circle_cx": 1,
+                "minimum_enclosing_circle_cy": 1,
+                "minimum_enclosing_circle_radius": 1,
+                "shape_height": 1,
+                "shape_width": 1,
+                "shape_width_min": 1,
+                "shape_width_max": 1,
+                "shape_width_avg": 1,
+                "shape_width_std": 1,
+                "quantile_width": 4,
+                "line_width": 4,
+                "centroid_width": 10
+              },
+              "grid_search_params": {
+                "area": "1",
+                "perimeter": "1",
+                "centroid_x": "1",
+                "centroid_y": "1",
+                "hull_area": "1",
+                "shape_solidity": "1",
+                "shape_extend": "1",
+                "straight_bounding_rectangle_left": "1",
+                "straight_bounding_rectangle_width": "1",
+                "straight_bounding_rectangle_top": "1",
+                "straight_bounding_rectangle_height": "1",
+                "rotated_bounding_rectangle_cx": "1",
+                "rotated_bounding_rectangle_cy": "1",
+                "rotated_bounding_rectangle_width": "1",
+                "rotated_bounding_rectangle_height": "1",
+                "rotated_bounding_rectangle_rotation": "1",
+                "minimum_enclosing_circle_cx": "1",
+                "minimum_enclosing_circle_cy": "1",
+                "minimum_enclosing_circle_radius": "1",
+                "shape_height": "1",
+                "shape_width": "1",
+                "shape_width_min": "1",
+                "shape_width_max": "1",
+                "shape_width_avg": "1",
+                "shape_width_std": "1",
+                "s1": "",
+                "quantile_width": "4",
+                "line_width": "4",
+                "centroid_width": "10"
+              }
+            },
+            "enabled": 2,
+            "uuid": "880c30ae-f3aa-4f53-825c-9d653aa5b544"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      },
+      {
+        "node_type": "group",
+        "merge_mode": "merge_mode_chain",
+        "name": "Build images",
+        "uuid": "build_images",
+        "source": "source",
+        "no_delete": false,
+        "nodes": [
+          {
+            "node_type": "module",
+            "tool": {
+              "name": "Copy or rename image",
+              "package": "IPSO_Phen",
+              "class__name__": "IptCopyOrRenameImage",
+              "module__name__": "ipso_phen.ipapi.ipt.ipt_copy_or_rename_image",
+              "params": {
+                "enabled": 1,
+                "source_image": "custom",
+                "named_source": "mask",
+                "output_format": "source",
+                "subfolders": "",
+                "output_name": "suffix",
+                "prefix": "",
+                "suffix": "",
+                "make_safe_name": 1,
+                "roi_names": "",
+                "roi_selection_mode": "all_named",
+                "max_width": 0,
+                "max_height": 0,
+                "kar": 1,
+                "path": "C:\\Users\\eminot\\PycharmProjects\\HeliaPHIS",
+                "prefix_suffix": "image_mask"
+              },
+              "grid_search_params": {
+                "enabled": "1",
+                "source_image": "source",
+                "named_source": "mask",
+                "output_format": "source",
+                "subfolders": "",
+                "output_name": "as_source",
+                "prefix": "",
+                "suffix": "",
+                "make_safe_name": "1",
+                "roi_names": "",
+                "roi_selection_mode": "all_linked",
+                "sep1": "",
+                "max_width": "0",
+                "max_height": "0",
+                "kar": "1",
+                "path": "C:\\Users\\eminot\\PycharmProjects\\HeliaPHIS",
+                "prefix_suffix": "image_mask"
+              }
+            },
+            "enabled": true,
+            "uuid": "f1260943-35ae-4d9a-84e1-4a36f8f5a4b4"
+          }
+        ],
+        "execute_filters": {
+          "experiment": "",
+          "plant": "",
+          "date": "",
+          "time": "",
+          "camera": "",
+          "view_option": ""
+        }
+      }
+    ],
+    "execute_filters": {
+      "experiment": "",
+      "plant": "",
+      "date": "",
+      "time": "",
+      "camera": "",
+      "view_option": ""
+    }
+  }
+}
