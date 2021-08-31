@@ -15,9 +15,7 @@ If you want to add to this repo you should give these informations :
 ├── Example
 │   ├── GrainSample.csv
 │   └── GrainSample_secondary_var_test.ipynb
-└── Phenotyping
-    └── PHENOME
-        └── HeliaPHIS
+└── HeliaPHIS
 ```
 
 ### HeliaPhis scripts (Author : Eva Minot)
