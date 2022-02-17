@@ -1,12 +1,3 @@
-#******************************************************************************
-# //csv_phis.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
 import _io
 import csv
 import os
@@ -52,23 +43,20 @@ def create_csv_file(filename, datatype, number=0):
     folder_name = file_name.split("_")[1]
     folder_name = folder_name.split(".")[0]
     if data_type == "ipsophen_data":
-        # change the path to the correct location where you want to save the output
-        path = "path/where/you/want/the/output/to/be/saved".format(folder_name)
+        path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/ipsophen_data_out/{}".format(folder_name)
         if not os.path.exists(path):
             os.makedirs(path)
         path = os.path.join(path, file_name)
         ipsophen_functions.file_list.append(path)
     elif data_type == "weights_data":
         folder_date = "20" + folder_name[0:4]
-        # change the path to the correct location where you want to save the output
-        path = "path/where/you/want/the/output/to/be/saved".format(folder_date)
+        path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/weights_data_out/{}".format(folder_date)
         if not os.path.exists(path):
             os.makedirs(path)
         path = os.path.join(path, file_name)
         weights.file_list.append(path)
     elif data_type == "leaf_area_data":
-        # change the path to the correct location where you want to save the output
-        path = "path/where/you/want/the/output/to/be/saved".format(folder_name)
+        path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/leaf_area/sorties/{}".format(folder_name)
         if not os.path.exists(path):
             os.makedirs(path)
         path = os.path.join(path, file_name)

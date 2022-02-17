@@ -1,15 +1,3 @@
-#******************************************************************************
-# // add_ipsophen_data.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // IPSO Phen - https://ipso-phen.readthedocs.io/en/latest/installation.html
-# // Colorama - https://pypi.org/project/colorama/
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
-
 import os
 import shutil
 import re
@@ -29,12 +17,11 @@ from phis_functions import connection, data
 if __name__ == '__main__':
     try:
         init()
-
+        # change here to put the correct path of the image directory
         timestamps = []
         latest_timestamp = folder_gestion.get_timestamp_ipsophen()
 
-        # change here to put the correct path of the image directory
-        for folder in os.scandir("your/path"):
+        for folder in os.scandir("/mnt/Shared/Helia/Data_Out/"):
             # for each folder in the directory
             # check if it is an image folder (and not a weight folder or something else)
             if folder.is_dir() and folder_gestion.check_type_folder_ipsophen(folder):
@@ -48,8 +35,8 @@ if __name__ == '__main__':
                     # reinitialize the list of phis csv files
                     # (it's global so if you don't do it it will add in the list previously
                     # created for another image folder)
+                    f.write(datetime.strftime(folder_date, "%Y-%m-%d") + "\n")
                     ipsophen_functions.file_list = []
-
                     print("to be processed")
                     timestamps.append(folder_date)
 
@@ -57,9 +44,8 @@ if __name__ == '__main__':
                     out_file_path = ipsophen_functions.process(folder_in, "ipsophen_" + folder.name)
 
                     # connection to Phis
-                    # change here to put your correct information
-                    identifier = "your_id"
-                    pwd = "your_password"
+                    identifier = "phenotoul_auto@inrae.fr"
+                    pwd = "phenotoul_auto"
                     try:
                         client = connection.connect_to_phis(identifier, pwd)
                     except ApiException as e:
@@ -86,5 +72,7 @@ if __name__ == '__main__':
         if len(timestamps) != 0:
             latest_timestamp = folder_gestion.get_max_timestamp(timestamps)
             folder_gestion.print_timestamp_ipsophen(latest_timestamp)
+        f.close()
     except EOFError as e:
+        f.close()
         exit(0)

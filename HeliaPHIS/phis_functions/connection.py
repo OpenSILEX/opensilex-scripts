@@ -1,12 +1,3 @@
-#******************************************************************************
-# // connection.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
 import opensilexClientToolsPython
 from colorama import Fore, Style
 from opensilexClientToolsPython.rest import ApiException
@@ -24,8 +15,7 @@ def connect_to_phis(identifier, pwd):
     """
     pythonClient = opensilexClientToolsPython.ApiClient()
 
-    # change the third argument here to put the correct host IP address
-    pythonClient.connect_to_opensilex_ws(identifier=identifier, password=pwd, host="your host IP address")
+    pythonClient.connect_to_opensilex_ws(identifier=identifier, password=pwd, host="http://138.102.159.37:8095/rest")
     api_instance = opensilexClientToolsPython.AuthenticationApi(pythonClient)
     # Authenticate a user and return an access token
     api_response = api_instance.authenticate(body=opensilexClientToolsPython.AuthenticationDTO(identifier, pwd))

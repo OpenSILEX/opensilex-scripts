@@ -1,12 +1,3 @@
-#******************************************************************************
-# //leaf_area.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
 import csv
 import datetime
 import os
@@ -15,11 +6,11 @@ import time
 import numpy as np
 import csv_phis
 from phis_functions import experiment, scientific_object, data
+# fichier_model = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/leaf_area/reprex/model_area/model_area_global.rds"
 
 
 file_list = []
-# change here and put the path where your model is
-model = "path/of/the/model"
+model = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/models/18HP010_RobustLinearModel.txt"
 
 
 def get_info_from_phis(pythonClient, plant, experiment_name, start_date, end_date):
@@ -30,8 +21,7 @@ def get_info_from_phis(pythonClient, plant, experiment_name, start_date, end_dat
     if not data_list:
         return None
     else:
-        # indicate here the path where you want the output to be created
-        path = "path/of/output".format(
+        path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/leaf_area/fichiers_features/{}".format(
             experiment_name)
         if not os.path.exists(path):
             os.makedirs(path)
@@ -148,7 +138,7 @@ def calculate_all_areas_from_experiment(pythonClient, experiment_uri, start_date
             if fichier_features is None:
                 continue
             else:
-                path = "path/of/the/output".format(
+                path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/leaf_area/sorties/{}".format(
                     experiment_name)
                 if not os.path.exists(path):
                     os.makedirs(path)

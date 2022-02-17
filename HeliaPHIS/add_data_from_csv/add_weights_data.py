@@ -1,13 +1,3 @@
-#******************************************************************************
-# //add_weights_data.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // Colorama - https://pypi.org/project/colorama/
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
 import os
 import shutil
 from os import listdir
@@ -22,9 +12,8 @@ import folder_gestion
 from phis_functions import connection, data
 
 if __name__ == '__main__':
-    # change here to put your correct information
-    identifier = "your_id"
-    pwd = "your_password"
+    identifier = "phenotoul_auto@inrae.fr"
+    pwd = "phenotoul_auto"
 
 
     # is a dict where the keys are the folder dates and the values are a list of the dates of
@@ -37,7 +26,7 @@ if __name__ == '__main__':
     latest_file_timestamp = folder_gestion.get_timestamp_weight()[1]
 
     # change here to put the correct path of the weights directory
-    for folder in os.scandir("your/path"):
+    for folder in os.scandir("/mnt/Shared/Helia/Data_Out/"):
         # is it this current month's weights folder
         # if yes process its files
         if folder.is_dir() and folder_gestion.check_type_folder_weights(folder):

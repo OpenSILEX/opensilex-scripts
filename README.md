@@ -1,22 +1,32 @@
-# opensilex-ws-client-use-cases
+# opensilex-scripts
 
-This project will catch all scripts that have been made using OpenSILEX clients.
+This repository will contain different scripts that have been made using the OpenSILEX clients or that directly call the OpenSILEX webservices.
 
 If you want to add to this repo you should give these informations :
 
 * Contact info
-* Version of the opensilexClientToolsPython package you used (and additional requirements)
+* Version of OpenSILEX and client package used (and additional requirements)
 * Add examples and description text (can include diagrams and images)
 
 ## Structure
 
 ```bash
 .
+├── Adonis
 ├── Example
 │   ├── GrainSample.csv
 │   └── GrainSample_secondary_var_test.ipynb
-└── HeliaPHIS
+├── HeliaPHIS
+└── README.md
 ```
+
+### Adonis (Author : Jean-Eudes Hollebecq)
+
+Scripts to extract data from Adonis' xml outputs and upload it to  OpenSILEX.
+
+### Example (Author : Gabriel Besombes)
+
+Simple examples of scripts in jupyter notebook format.
 
 ### HeliaPhis scripts (Author : Eva Minot)
 

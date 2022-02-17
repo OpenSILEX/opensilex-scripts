@@ -1,0 +1,2 @@
+numero,nom,datecreation,createur,gestionnaires,source,etat,datevalidation,plateforme,uri
+1,ChataignierBourran,2015-07-03T12:02:20.078+0200,['test:/4'],"['test:/5', 'test:/2', 'test:/4']",essai.csv,valide,2015-07-03T12:06:17.230+0200,0.0,test:/0/@dispositifs.0

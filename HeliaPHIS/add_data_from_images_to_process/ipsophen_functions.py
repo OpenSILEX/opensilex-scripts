@@ -1,13 +1,3 @@
-#******************************************************************************
-# //ipsophen_functions.py
-# // Eva Minot
-# // OpenSILEX - Licence AGPL V3.0 - https://www.gnu.org/licenses/agpl-3.0.en.html
-# // OpenSILEX - ClientToolsPyhton V1.0.0-beta+2 - https://github.com/OpenSILEX/opensilexClientToolsPython/releases/tag/1.0.0-beta%2B2
-# // IPSO Phen - https://ipso-phen.readthedocs.io/en/latest/installation.html
-# // Copyright © INRAE 2021
-# // Contact: eva.mnt15@gmail.com, isabelle.alic@inrae.fr, nicolas.langlade@inrae.fr
-# //*********
-
 import csv
 import json
 import re
@@ -37,13 +27,11 @@ def process(image_folder, out_file_name):
         :rtype: Normalized version of the out file's pathname
     """
     folder_name = out_file_name.split("_")[1]
-    # change the path here to put the correct location where you want the output to be created
-    path = "out_file/path".format(folder_name, out_file_name)
+    path = "/mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS/Data/ipsophen_data_out/{}/{}".format(folder_name, out_file_name)
     if not os.path.exists(path):
         os.makedirs(path)
-    # change the path of the argument --script and put the correct location of the json file for ipsophen
     os.system(
-        'ipso_cli --image-folder {} --script path/where/the/json/file/is'
+        'ipso_cli --image-folder {} --script /mnt/GRP_ASTR/GRP_ASTR/Priv/ASTR/RESSOURCES_INFO/PYTHON/HeliaPHIS'
         '/Scripts/heliasen_qc_tfi.json  --output-folder {} --csv-file-name {}'.format(image_folder, path, out_file_name))
     return os.path.abspath(path + "/{}.csv".format(out_file_name))
 

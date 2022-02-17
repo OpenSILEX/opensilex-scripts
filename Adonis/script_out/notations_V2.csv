@@ -1,0 +1,13 @@
+texte,image,valeur,saisie,variables,echelle,uri,projetdesaisie
+Potentiellement compatible à une utilisation foerestière  (bonne dominance apicale),,1,1.0,0.0,0.0,test:/1/@variables.0/@echelle.0/@notations.0,
+Compatibilité forestière incertaine,,2,1.0,0.0,0.0,test:/1/@variables.0/@echelle.0/@notations.1,
+Pas de compatibilité forestière (pas de dominance apicale),,3,1.0,0.0,0.0,test:/1/@variables.0/@echelle.0/@notations.2,
+Arbre de franc pied,,1,1.0,1.0,0.0,test:/1/@variables.1/@echelle.0/@notations.0,
+Arbre mixte,,2,1.0,1.0,0.0,test:/1/@variables.1/@echelle.0/@notations.1,
+Cépée,,3,1.0,1.0,0.0,test:/1/@variables.1/@echelle.0/@notations.2,
+Potentiellement compatible à une utilisation foerestière  (bonne dominance apicale),,1,,0.0,0.0,test:/3/@variables.0/@echelle.0/@notations.0,3.0
+Compatibilité forestière incertaine,,2,,0.0,0.0,test:/3/@variables.0/@echelle.0/@notations.1,3.0
+Pas de compatibilité forestière (pas de dominance apicale),,3,,0.0,0.0,test:/3/@variables.0/@echelle.0/@notations.2,3.0
+Arbre de franc pied,,1,,1.0,0.0,test:/3/@variables.1/@echelle.0/@notations.0,3.0
+Arbre mixte,,2,,1.0,0.0,test:/3/@variables.1/@echelle.0/@notations.1,3.0
+Cépée,,3,,1.0,0.0,test:/3/@variables.1/@echelle.0/@notations.2,3.0

@@ -1,0 +1,4 @@
+nom,prenom,email,login,motdepasse,role,uri
+Dourthe,Remi,,rdourthe,aa36dc6e81e2ac7ad03e12fedcb6a2c0,gestionnairePlateforme,test:/2
+Bernier,Frederic,,fbernier,aa36dc6e81e2ac7ad03e12fedcb6a2c0,gestionnairePlateforme,test:/4
+Adonis,Administrateur,admin@adonis.fr,admin,1f83246b9b6a1409d273de4901c98514,,test:/5
