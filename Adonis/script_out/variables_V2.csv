@@ -1,0 +1,5 @@
+nom,nomcourt,nbrepetitionsaisies,unite,horodatage,uniteparcourstype,datecreation,datedernieremodification,commentaire,ordre,active,format,typevariable,saisie,uri,saisieobligatoire,projetdesaisie
+note-forrestière,NF,1,,true,Individu,2015-02-17T16:08:52.192+0100,2015-07-03T12:07:52.078+0200,,2,true,,entiere,1.0,test:/1/@variables.0,,
+Statut,sta15,1,,true,Individu,2015-02-24T15:25:00.931+0100,2015-07-03T12:07:57.148+0200,,3,true,,entiere,1.0,test:/1/@variables.1,true,
+note-forrestière,NF,1,,true,Individu,2015-02-17T16:08:52.192+0100,2015-07-03T12:07:52.078+0200,,2,true,,entiere,,test:/3/@variables.0,,3.0
+Statut,sta15,1,,true,Individu,2015-02-24T15:25:00.931+0100,2015-07-03T12:07:57.148+0200,,3,true,,entiere,,test:/3/@variables.1,true,3.0
