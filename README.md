@@ -25,6 +25,10 @@ If you want to add to this repo you should give these informations :
 
 Scripts to extract data from Adonis' xml outputs and upload it to  OpenSILEX.
 
+### Check agrovoc uris (Author : Gabriel Besombes)
+
+Notebook to check for mistakes in the concepts from agrovoc that are used to declare germplasms
+
 ### Example (Author : Gabriel Besombes)
 
 Simple examples of scripts in jupyter notebook format.
