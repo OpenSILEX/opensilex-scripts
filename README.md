@@ -13,6 +13,7 @@ If you want to add to this repo you should give these informations :
 ```bash
 .
 ├── Adonis
+├── Check_agrovoc_uris
 ├── Example
 │   ├── GrainSample.csv
 │   └── GrainSample_secondary_var_test.ipynb
