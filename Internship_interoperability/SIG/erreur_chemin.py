@@ -1,0 +1,1 @@
+print("Ce script est prétexte pour afficher un message d'erreur si le chemin complet de la couche n'est pas saisi en entrée")

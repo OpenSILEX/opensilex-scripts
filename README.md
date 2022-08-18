@@ -18,6 +18,11 @@ If you want to add to this repo you should give these informations :
 │   ├── GrainSample.csv
 │   └── GrainSample_secondary_var_test.ipynb
 ├── HeliaPHIS
+├── Internship_interoperability
+│   ├── Applications
+│   │   ├── App_verif_germplasm
+│   │   └── ITKtoPHIS
+│   └── SIG
 └── README.md
 ```
 
@@ -25,7 +30,7 @@ If you want to add to this repo you should give these informations :
 
 Scripts to extract data from Adonis' xml outputs and upload it to  OpenSILEX.
 
-### Check agrovoc uris (Author : Gabriel Besombes)
+### Check_agrovoc_uris (Author : Gabriel Besombes)
 
 Notebook to check for mistakes in the concepts from agrovoc that are used to declare germplasms
 
@@ -33,10 +38,18 @@ Notebook to check for mistakes in the concepts from agrovoc that are used to dec
 
 Simple examples of scripts in jupyter notebook format.
 
-### HeliaPhis scripts (Author : Eva Minot)
+### HeliaPhis (Author : Eva Minot)
 
 * Add_data_from_images_to_process : script files allowing to automate the processing of image files by software (here IPSO Phen),  the data csv of the output of the processing allows the creation of one (or more) new ( x) csv adapted to the phis data format to be able to send them to phis afterwards.
 
 * Add_data_from_csv : scripts folder to retrieve the desired data in a csv and put them in a new csv adapted to PHIS data format to be able to send them to PHIS.
 
 * Create_csv_of_data_for_phis  :script that allows you to create csv adapted to PHIS data format, taking into account the maximum limit for sending at one time (which is 50,000).
+
+### Internship_interoperability (Author : Paul Faucher)
+
+* Application/App_verif_germplasm : application to check germplasm existance/validity against an opensilex instance
+
+* Application/ITKtoPHIS : application to import treatment data from Geofolia into an opensilex instance
+
+* SIG : __NOTE__ This is quite specific to "Unité Expérimentale d'AgroEcologie et de Phénotypage des Cultures, Toulouse" from INRAE and to ArcGIS but can still be usefull for other applications. This is meant to facilitate the exchange of data between an opensilex instance and an ArcGIS server.
