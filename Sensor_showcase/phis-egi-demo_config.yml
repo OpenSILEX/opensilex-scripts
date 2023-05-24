@@ -1,0 +1,10 @@
+# Geographical location to get temperature from
+# This one is Helsinki University
+latitude: "60.230477"
+longitude: "25.018615"
+
+# These elements must exist in the corresponding OpenSILEX instance
+variable: "http://phis.egi-demo.eu/id/variable/air_temperature_datalogging_degreecelsius"
+provenance_uri: "phis-egi-demo:id/provenance/datalogging"
+device_uri: "phis-egi-demo:id/device/datalogging_temperature"
+device_rdf_type: "vocabulary:SensingDevice"

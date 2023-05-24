@@ -1,0 +1,10 @@
+# Geographical location to get temperature from
+# This one is the "La Gaillarde" campus in Montpellier, France
+latitude: "43.617460159728644"
+longitude: "3.8548877153186276"
+
+# These elements must exist in the corresponding OpenSILEX instance
+variable: "http://opensilex.test/id/variable/air_temperature_datalogging_degreecelsius"
+provenance_uri: "opensilex-sandbox:id/provenance/datalogging"
+device_uri: "opensilex-sandbox:id/device/datalogging_temperature"
+device_rdf_type: "vocabulary:SensingDevice"

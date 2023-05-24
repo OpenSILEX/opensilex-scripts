@@ -23,6 +23,11 @@ If you want to add to this repo you should give these informations :
 │   │   ├── App_verif_germplasm
 │   │   └── ITKtoPHIS
 │   └── SIG
+├── Sensor_showcase
+│   ├── phis-egi-demo_config.yml
+│   ├── sandbox_config.yml
+│   ├── send_data_regularly.py
+│   └── test_config.yml
 └── README.md
 ```
 
@@ -53,3 +58,8 @@ Simple examples of scripts in jupyter notebook format.
 * Application/ITKtoPHIS : application to import treatment data from Geofolia into an opensilex instance
 
 * SIG : __NOTE__ This is quite specific to "Unité Expérimentale d'AgroEcologie et de Phénotypage des Cultures, Toulouse" from INRAE and to ArcGIS but can still be usefull for other applications. This is meant to facilitate the exchange of data between an opensilex instance and an ArcGIS server.
+
+### Sensor_showcase (Author : Gabriel Besombes)
+
+* send_data_regularly.py : script to get data from a free weather api to simulate a weather sensor and send said data to an opensilex instance.
+* .yml files : configuration files used by the script.
