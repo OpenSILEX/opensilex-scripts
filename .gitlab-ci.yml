@@ -1,0 +1,75 @@
+# This file is a template, and might need editing before it works on your project.
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
+# it uses echo commands to simulate the pipeline execution.
+#
+# A pipeline is composed of independent jobs that run scripts, grouped into stages.
+# Stages run in sequential order, but jobs within stages run in parallel.
+#
+# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+#
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+stages:  
+  - .pre        # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - deploy
+
+
+########################
+# SEND DATA REGULARLY
+########################
+
+# SANDBOX
+send:data:sanbox:
+  image:  python:3.9.16-slim
+  stage: .pre
+  before_script:
+    - apt-get update --allow-insecure-repositories && apt-get install -y git
+    - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
+    - pip install requests
+    - pip install pyyaml
+  script:
+    - cd sensor_showcase/send_data_regularly
+    - python3 send_data_regularly.py --host $SANDBOX_API_URL --identifier $SANDBOX_ADMIN_IDENTIFIER --password $SANDBOX_ADMIN_PASSWORD --config sandbox_config.yml
+  rules:
+    - if: '$SANDBOX_SEND_DATA == "true"'
+
+# TEST
+send:data:test:
+  image: python:3.9.16-slim
+  stage: .pre
+  before_script:
+    - apt-get update --allow-insecure-repositories && apt-get install -y git
+    - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
+    - pip install requests
+    - pip install pyyaml
+  script:
+    - cd sensor_showcase/send_data_regularly
+    - python3 send_data_regularly.py --host $TEST_API_URL --identifier $TEST_ADMIN_IDENTIFIER --password $TEST_ADMIN_PASSWORD --config test_config.yml
+  rules:
+    - if: '$TEST_SEND_DATA == "true"'
+
+ # PHIS-EGI-DEMO
+send:egi-demo:sanbox:
+  image:  python:3.9.16-slim
+  stage: .pre
+  before_script:
+    - apt-get update --allow-insecure-repositories && apt-get install -y git
+    - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
+    - pip install requests
+    - pip install pyyaml
+  script:
+    - cd sensor_showcase/send_data_regularly
+    - python3 send_data_regularly.py --host $EGI_DEMO_API_URL --identifier $SANDBOX_ADMIN_IDENTIFIER --password $EGI_DEMO_ADMIN_PASSWORD --config phis-egi-demo_config.yml
+  rules:
+    - if: '$EGI_DEMO_SEND_DATA == "true"'   
+
+########################
