@@ -37,7 +37,7 @@ send:data:sanbox:
     - pip install requests
     - pip install pyyaml
   script:
-    - cd sensor_showcase/send_data_regularly
+    - cd Sensor_showcase/send_data_regularly
     - python3 send_data_regularly.py --host $SANDBOX_API_URL --identifier $SANDBOX_ADMIN_IDENTIFIER --password $SANDBOX_ADMIN_PASSWORD --config sandbox_config.yml
   rules:
     - if: '$SANDBOX_SEND_DATA == "true"'
@@ -52,7 +52,7 @@ send:data:test:
     - pip install requests
     - pip install pyyaml
   script:
-    - cd sensor_showcase/send_data_regularly
+    - cd Sensor_showcase/send_data_regularly
     - python3 send_data_regularly.py --host $TEST_API_URL --identifier $TEST_ADMIN_IDENTIFIER --password $TEST_ADMIN_PASSWORD --config test_config.yml
   rules:
     - if: '$TEST_SEND_DATA == "true"'
@@ -67,7 +67,7 @@ send:egi-demo:sanbox:
     - pip install requests
     - pip install pyyaml
   script:
-    - cd sensor_showcase/send_data_regularly
+    - cd Sensor_showcase/send_data_regularly
     - python3 send_data_regularly.py --host $EGI_DEMO_API_URL --identifier $EGI_DEMO_ADMIN_IDENTIFIER --password $EGI_DEMO_ADMIN_PASSWORD --config phis-egi-demo_config.yml
   rules:
     - if: '$EGI_DEMO_SEND_DATA == "true"'   
