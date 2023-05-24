@@ -17,7 +17,7 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 stages:  
-  - .pre        # List of stages for jobs, and their order of execution
+  #- .pre        # List of stages for jobs, and their order of execution
   - build
   - test
   - deploy
