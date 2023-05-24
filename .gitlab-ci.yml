@@ -30,7 +30,6 @@ stages:
 # SANDBOX
 send:data:sanbox:
   image:  python:3.9.16-slim
-  stage: .pre
   before_script:
     - apt-get update --allow-insecure-repositories && apt-get install -y git
     - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
@@ -45,7 +44,6 @@ send:data:sanbox:
 # TEST
 send:data:test:
   image: python:3.9.16-slim
-  stage: .pre
   before_script:
     - apt-get update --allow-insecure-repositories && apt-get install -y git
     - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
@@ -60,7 +58,6 @@ send:data:test:
  # PHIS-EGI-DEMO
 send:egi-demo:sanbox:
   image:  python:3.9.16-slim
-  stage: .pre
   before_script:
     - apt-get update --allow-insecure-repositories && apt-get install -y git
     - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
