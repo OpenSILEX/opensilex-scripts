@@ -63,3 +63,4 @@ Simple examples of scripts in jupyter notebook format.
 
 * send_data_regularly.py : script to get data from a free weather api to simulate a weather sensor and send said data to an opensilex instance.
 * .yml files : configuration files used by the script.
+* send_data_regularly.md : documentation sur le script.
