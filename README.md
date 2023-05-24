@@ -53,11 +53,11 @@ Simple examples of scripts in jupyter notebook format.
 
 ### Internship_interoperability (Author : Paul Faucher)
 
-* Application/App_verif_germplasm : application to check germplasm existance/validity against an opensilex instance
+* Applications/App_Verification_Germplasm : application to check germplasm existance/validity against an opensilex instance
 
-* Application/ITKtoPHIS : application to import treatment data from Geofolia into an opensilex instance
+* Applications/ITKtoPHIS : application to import treatment data from Geofolia into an opensilex instance
 
-* SIG : __NOTE__ This is quite specific to "Unité Expérimentale d'AgroEcologie et de Phénotypage des Cultures, Toulouse" from INRAE and to ArcGIS but can still be usefull for other applications. This is meant to facilitate the exchange of data between an opensilex instance and an ArcGIS server.
+* SIG : __NOTE__ This is quite specific to "Unité Expérimentale d'AgroEcologie et de Phénotypage des Cultures, Toulouse" from INRAE and to ArcGIS but can still be usefull for other applications. This is meant to facilitate the exchange of spatial data between an opensilex instance and an ArcGIS.
 
 ### Sensor_showcase (Author : Gabriel Besombes)
 
