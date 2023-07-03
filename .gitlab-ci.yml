@@ -69,4 +69,18 @@ send:egi-demo:sanbox:
   rules:
     - if: '$EGI_DEMO_SEND_DATA == "true"'   
 
+ # PHIS-DEMO
+send:demo:sanbox:
+  image:  python:3.9.16-slim
+  before_script:
+    - apt-get update --allow-insecure-repositories && apt-get install -y git
+    - pip install git+https://github.com/OpenSILEX/opensilexClientToolsPython.git@1.0.0-rc+6.2
+    - pip install requests
+    - pip install pyyaml
+  script:
+    - cd Sensor_showcase
+    - python3 send_data_regularly.py --host $DEMO_API_URL --identifier $DEMO_ADMIN_IDENTIFIER --password $DEMO_ADMIN_PASSWORD --config phis-demo_config.yml
+  rules:
+    - if: '$DEMO_SEND_DATA == "true"'   
+
 ########################
