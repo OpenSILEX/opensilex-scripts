@@ -4,7 +4,7 @@ latitude: "60.230477"
 longitude: "25.018615"
 
 # These elements must exist in the corresponding OpenSILEX instance
-variable: "opensilex-test:id/variable/air_temperature_datalogging_degreecelsius/1"
+variable: "opensilex-test:id/variable/air_temperature_datalogging_degreecelsius"
 provenance_uri: "opensilex-test:id/provenance/datalogging"
 device_uri: "http://opensilex.test/id/device/datalogging_temperature"
 device_rdf_type: "vocabulary:SensingDevice"
