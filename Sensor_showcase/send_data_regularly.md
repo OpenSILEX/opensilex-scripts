@@ -1,6 +1,4 @@
----
-title: Envoi de données de façon régulière
----
+# Envoi de données de façon régulière
 
 ## Généralités
 

@@ -57,9 +57,17 @@ def get_current_temperature_from_open_meteo_api(
     :return: the current temperature in Celsius degrees at the specified latitude and longitude
     coordinates, obtained from the Open Meteo API.
     """
-    url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&current_weather=true"
-    montpellier_supagro_temperature = requests.get(url).json()["current_weather"]["temperature"]
-    return montpellier_supagro_temperature
+    try:
+        url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&current_weather=true"
+        json_response = requests.get(url).json()
+        if "error" not in json_response.keys(): #ignore service error
+            return json_response["current_weather"]["temperature"]
+        else:
+            print("An error was returned by the meteo service : \n", json_response)
+            return "FAILED"
+    except Exception as e: # Ignore any error related to unavailability of the service or network
+        print("An error occured during meteo service call : \n", e)
+        return "FAILED"
 
 def send_data_to_opensilex(
     value : float,
@@ -152,28 +160,37 @@ if __name__ == "__main__":
     if args.config:
         with open(args.config, "r") as config_file:
             params = yaml.safe_load(config_file)
-        send_data_to_opensilex(
-            value=get_current_temperature_from_open_meteo_api(
-                latitude=params["latitude"], 
-                longitude=params["longitude"]
-            ),
-            data_api=get_connected_data_api(
-                host=args.host,
-                identifier=args.identifier,
-                password=args.password,
-            ),
-            variable=params["variable"],
-            provenance_uri=params["provenance_uri"],
-            device_uri=params["device_uri"],
-            device_rdf_type=params["device_rdf_type"]
+        
+        value = get_current_temperature_from_open_meteo_api(
+            latitude=params["latitude"], 
+            longitude=params["longitude"]
         )
-    else:
-        send_data_to_opensilex(
-            value=get_current_temperature_from_open_meteo_api(),
-            data_api=get_connected_data_api(
-                host=args.host,
-                identifier=args.identifier,
-                password=args.password,
+        if value == "FAILED":
+            print("NO DATA SENT")
+        else:
+            send_data_to_opensilex(
+                value=value,
+                data_api=get_connected_data_api(
+                    host=args.host,
+                    identifier=args.identifier,
+                    password=args.password,
+                ),
+                variable=params["variable"],
+                provenance_uri=params["provenance_uri"],
+                device_uri=params["device_uri"],
+                device_rdf_type=params["device_rdf_type"]
             )
-        )
+    else:
+        value = get_current_temperature_from_open_meteo_api()
+        if value == "FAILED":
+            print("NO DATA SENT")
+        else:
+            send_data_to_opensilex(
+                value=value,
+                data_api=get_connected_data_api(
+                    host=args.host,
+                    identifier=args.identifier,
+                    password=args.password,
+                )
+            )
         
